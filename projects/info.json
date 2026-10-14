@@ -1,0 +1,29 @@
+[
+  {
+    "name": "Todone",
+    "cover": "/images/projects/android-code.png",
+    "summary": "一个基于Jetpack Compose构建的实用类型安卓应用，支持待办、笔记以及检查单功能。",
+    "projLink": "https://github.com/sijayyx/Todone",
+    "articleTitle": null,
+    "createDate": "2025-11-16",
+    "tags": ["Kotlin", "Android"]
+  },
+  {
+    "name": "寂野之光",
+    "cover": "/images/projects/background-flashofwilderness.png",
+    "summary": "使用Unity引擎开发的生存类型游戏。",
+    "projLink": null,
+    "articleTitle": null,
+    "createDate": "2022-06-02",
+    "tags": ["游戏", "Unity", "C#"]
+  },
+  {
+    "name": "SimpleSoftRenderer",
+    "cover": "/images/projects/background-softrenderer.png",
+    "summary": "使用C++与EazyX开发的纯CPU运算的简单渲染器，包含基础光照模型、多光源渲染、阴影渲染与模型文件读取。",
+    "projLink": "https://github.com/sijayyx/SimpleSoftRenderer",
+    "articleTitle": null,
+    "createDate": "2026-01-01",
+    "tags": ["C++", "计算机图形学"]
+  }
+]
