@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Redirecting...</title>
+    <script>
+        // 保存原始路径，交给 index.html 恢复
+        sessionStorage.setItem('redirectPath', location.pathname + location.search + location.hash);
+        location.replace('/');
+    </script>
+</head>
+<body></body>
+</html>
