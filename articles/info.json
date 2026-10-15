@@ -1,20 +1,30 @@
 [
   {
-    "name": "fgg-2",
-    "title": "冯坤坤与番茄鱼的不解之缘(二)",
-    "date": "2026-10-13",
-    "summary": "还有续集？",
+    "name": "fgg-3",
+    "title": "番茄鱼之梦（三）",
+    "date": "2026-10-10",
+    "summary": "分手后，冯坤坤独自吃完一碗凉透的番茄鱼。",
     "cover": "/images/articles/you-are-0-i-am-1.png",
     "tags": [
       "GG"
     ]
   },
   {
+    "name": "fgg-2",
+    "title": "番茄鱼之梦（二）",
+    "date": "2026-10-09",
+    "summary": "想吃番茄鱼吗喵？",
+    "cover": "/images/articles/ayaka.png",
+    "tags": [
+      "GG"
+    ]
+  },
+  {
     "name": "fgg-1",
-    "title": "冯坤坤与番茄鱼的不解之缘",
+    "title": "番茄鱼之梦（一）",
     "date": "2026-10-08",
-    "summary": "坤坤的故事。",
-    "cover": "/images/articles/c-lang-femboy.jpg",
+    "summary": "冯坤坤心里想的是甜品站的运维小哥。",
+    "cover": "/images/articles/tomato-fish.png",
     "tags": [
       "GG"
     ]
