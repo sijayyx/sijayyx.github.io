@@ -15,9 +15,17 @@
     />
     <link href="https://fonts.googleapis.com/css2?family=Fira+Mono&family=JetBrains+Mono&family=Noto+Sans+SC:wght@100..900&display=swap"
           rel="stylesheet">
-
-  <script type="module" crossorigin src="/assets/index-H8olXGAg.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-Bxrztitj.css">
+    <script>
+        (function () {
+            let redirect = sessionStorage.redirect;
+            delete sessionStorage.redirect;
+            if (redirect && redirect !== location.href) {
+                history.replaceState(null, null, redirect);
+            }
+        })();
+    </script>
+  <script type="module" crossorigin src="/assets/index-BKRsnKkd.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-DzmHvMAw.css">
 </head>
 <body>
 <div id="app"></div>
