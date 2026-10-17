@@ -2,7 +2,7 @@
 title: 番茄鱼之梦（三）
 date: 2026-10-10
 summary: 分手后，冯坤坤独自吃完一碗凉透的番茄鱼。
-tags: [ GG ]
+tags: [ GG, BB, AA ]
 cover: /images/articles/you-are-0-i-am-1.png
 ---
 
