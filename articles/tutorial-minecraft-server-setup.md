@@ -1,16 +1,15 @@
 ---
-title: 使用Docker部署原版Minecraft服务器
+title: 用Docker部署Paper Minecraft服务器
 date: 2026-10-18
-summary: 本教程详细阐述如何在服务器上，使用Docker在Ubuntu Linux上部署并管理基于Paper的原版Minecraft服务器。
+summary: 本教程详细阐述如何在服务器上，在Ubuntu上通过Docker部署并管理基于Paper的原版Minecraft服务器。
 tags: [ 教程, Linux, Docker ]
 cover: /images/articles/minecraft-screenshot-1.png
 ---
 
 
-
->本教程假设您有基本网络知识和Linux基础，并且对Docker和Minecraft有基本了解。
+> 本教程假设您有基本网络知识和Linux基础，并且对Docker和Minecraft有基本了解。
 >
->本教程使用纯命令行操作，不使用开服面板等辅助工具，目标是部署一台基于Paper核心的正版验证的Minecraft服务端。
+>本教程使用纯命令行操作，不使用开服面板等辅助工具，目标是部署一台基于Paper核心、开启正版验证的Minecraft服务端。
 >
 >在完成之后，您应该可以在Docker容器中运行一个Minecraft服务器并成功访问它。
 >
@@ -18,11 +17,12 @@ cover: /images/articles/minecraft-screenshot-1.png
 
 ## 准备工作
 
-首先，您需要一台具有公网IP的主机，并安装Ubuntu Linux。云服务器一般都会分配公网IP地址并预装Linux操作系统。如果您没有云服务器，也可以使用内网穿透或组件虚拟局域网。本教程默认您拥有一台云服务器。
+首先，您需要一台具有公网IP的主机，并安装Ubuntu
+Linux。云服务器一般都会分配公网IP地址并预装Linux操作系统。如果您没有云服务器，也可以使用内网穿透或组建虚拟局域网。本教程默认您拥有一台云服务器。
 
 ### 登录远程主机
 
-您可以使用Windows的自带终端或Xshell等工具，通过SSH对服务器进行远程访问。请确保服务器安装了SSH，并开放了对应端口（默认22）。
+您可以使用Windows自带终端或Xshell等工具，通过SSH远程访问服务器。请确保服务器已安装SSH，并开放对应端口（默认22）。
 
 使用以下命令登录远程服务器的root账户
 
@@ -38,7 +38,8 @@ root@yourhostname:~#
 
 ### 安装Docker
 
-在开始教程之前，请在服务器中安装Docker与Docker Compose。本教程不赘述此过程。值得提醒的是，常见的云服务器厂商，如阿里云、腾讯云等，通常会提供镜像加速服务以加速常见镜像的拉取。但是有些镜像不会被加速，对于这种情况，您可以使用公共镜像源。我一般使用：
+在开始教程之前，请在服务器中安装Docker与Docker
+Compose。本教程不赘述此过程。值得提醒的是，常见的云服务器厂商（如阿里云、腾讯云等）通常会提供镜像加速服务以加速常见镜像的拉取。但有些镜像不会被加速，对于这种情况，您可以使用公共镜像源。我一般使用：
 
 ```bash
 https://docker.m.daocloud.io
@@ -46,15 +47,19 @@ https://docker.m.daocloud.io
 
 ### 下载Paper服务器核心
 
-接着，请回到您的日常工作电脑，访问[Paper | PaperMC](https://papermc.io/downloads/paper)下载您喜欢版本的Paper服务器核心。点击下载后，您会得到一个`.jar`结尾的文件，它就是我们需要的服务器核心。
+接着，请回到您的日常工作电脑，访问[Paper | PaperMC](https://papermc.io/downloads/paper)下载您所需版本的Paper服务器核心。点击下载后，您会得到一个
+`.jar`结尾的文件，它就是我们需要的服务器核心。
 
->Minecraft服务器核心，也叫服务端，简单说就是**运行在服务器上、负责处理游戏逻辑的程序**。没有它，服务器就无法启动。不同核心决定了服务器支持什么功能（插件、Mod等）以及性能如何。
+> Minecraft服务器核心，也叫服务端，简单说就是**运行在服务器上、负责处理游戏逻辑的程序**
+> 。没有它，服务器就无法启动。不同核心决定了服务器支持什么功能（插件、Mod等）以及性能如何。
 >
->您也可以从[Minecraft官网](minecraft.net)下载原版（Vanilla）服务器核心部署。不过Paper服务器核心相比原版，包含了大量性能优化，稳定性和性能更好，且支持插件，Paper服务器几乎已经成为了原版插件服的事实标准。
+>您也可以从[Minecraft官网](minecraft.net)
+> 下载原版（Vanilla）服务器核心部署。不过Paper服务器核心相比原版，包含了大量性能优化，稳定性和性能更好，且支持插件，Paper服务器几乎已经成为了原版插件服的事实标准。
 
 ### 初始化服务器核心
 
-请创建一个文件夹，命名为您喜欢的名字（我命名为`paper-server`），再在其中创建一个名为`server`的文件夹，并将您的服务端核心文件放进去，重命名为`server.jar`。这一步是为了确保命名规范性，避免后续可能的错误。
+请创建一个文件夹，命名为您喜欢的名字（我命名为`paper-server`），再在其中创建一个名为`server`的文件夹，并将您的服务端核心文件放进去，重命名为
+`server.jar`。这一步是为了确保命名规范性，避免后续可能的错误。
 
 然后，打开您电脑上的命令提示符，并确保您安装了您游戏所需要的Java版本。我以Windows操作系统为例，但Linux上的流程都差不多。请输入：
 
@@ -68,7 +73,8 @@ cd 您server.jar所在的文件路径
 java -jar server.jar
 ```
 
-如果您安装了正确版本的Java，服务端将开始运行并跳出一大堆东西。接着，服务器会因为没有同意EULA协议而停止运行。按Ctrl+C停止终端，你可以注意到服务器核心所在的文件夹内多出了一大堆东西。我们只需要关注两个文件：`eula.txt`和`server.properties`。
+如果您安装了正确版本的Java，服务端将开始运行并跳出一大堆东西。接着，服务器会因为没有同意EULA协议而停止运行。按Ctrl+C停止终端，你可以注意到服务器核心所在的文件夹内多出了一大堆东西。我们只需要关注两个文件：
+`eula.txt`和`server.properties`。
 
 > `eula.txt`表示您是否同意Mojang的EULA协议；`server.properties`是服务器的主要配置文件。
 
@@ -125,13 +131,15 @@ java -jar server.jar --nogui
 java -Xms4G -Xmx4G -XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200 -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:G1HeapWastePercent=5 -XX:G1MixedGCCountTarget=4 -XX:InitiatingHeapOccupancyPercent=15 -XX:G1MixedGCLiveThresholdPercent=90 -XX:G1RSetUpdatingPauseTimePercent=5 -XX:SurvivorRatio=32 -XX:+PerfDisableSharedMem -XX:MaxTenuringThreshold=1 -Dusing.aikars.flags=https://mcflags.emc.gs -Daikars.new.flags=true -XX:G1NewSizePercent=40 -XX:G1MaxNewSizePercent=50 -XX:G1HeapRegionSize=16M -XX:G1ReservePercent=15 -jar server.jar --nogui
 ```
 
-那堆参数是干嘛的不用管。您只需要根据您的服务器配置调整`-Xms -Xmx`这两项就行了。这是虚拟机的内存设置，它需要一个整数值和单位。将两个参数设置为相同值可避免JVM频繁申请额外内存导致的卡顿。对于4人左右的原版Minecraft服务器，2-3G的内存就已足够。
+那堆参数是干嘛的不用管。您只需要根据您的服务器配置调整`-Xms -Xmx`
+这两项就行了。这是虚拟机的内存设置，它需要一个整数值和单位。将两个参数设置为相同值可避免JVM频繁申请额外内存导致的卡顿。对于4人左右的原版Minecraft服务器，2-3G的内存就已足够。
 
 > 请注意，这个内存大小是专门分配给JVM的，操作系统、Docker等其它服务本身还会占用一部分内存，请务必留出余量。
 
 #### Dockerfile
 
-回到上级目录，也就是`server`这个文件夹的同级目录，`paper-server`文件夹下，请创建一个文本文件，并命名为`Dockerfile`（**不带`.txt`扩展名**）。在其中编辑这样的内容：
+回到上级目录，也就是`server`这个文件夹的同级目录，`paper-server`文件夹下，请创建一个文本文件，并命名为`Dockerfile`（*
+*不带`.txt`扩展名**）。在其中编辑这样的内容：
 
 ```dockerfile
 FROM eclipse-temurin:25-jdk-alpine
@@ -152,11 +160,13 @@ ENTRYPOINT ["/sbin/tini", "--"]
 CMD ["./start.sh"]
 ```
 
-在这个Dockerfile里，我们拉取轻量版Java 25的Docker镜像，并设置容器内部的工作目录为`/server`，通过阿里云的镜像拉取`tini`、`curl`、`bash`等工具。
+在这个Dockerfile里，我们拉取轻量版Java 25的Docker镜像，并设置容器内部的工作目录为`/server`，通过阿里云的镜像拉取`tini`、
+`curl`、`bash`等工具。
 
-随后，我们将Dockerfile所在目录中的`/server`文件夹整体复制到工作目录中，并给其中的`start.sh`赋一个可执行权限。
+随后，我们将Dockerfile所在目录中的`/server`文件夹整体复制到工作目录中，并给其中的`start.sh`赋予可执行权限。
 
-接着，我们暴露`25565`端口，也就是您在`server.properties`中设置的端口，使用`tini`作为初始化进程，并运行`start.sh`，把Minecraft服务器跑起来。
+接着，我们暴露`25565`端口，也就是您在`server.properties`中设置的端口，使用`tini`作为初始化进程，并运行`start.sh`
+，把Minecraft服务器跑起来。
 
 #### docker-compose.yml
 
@@ -176,7 +186,8 @@ services:
     restart: unless-stopped
 ```
 
-这个文件让Docker Compose执行同级的Dockerfile以构建镜像，并将容器名称命名为`minecraft-server`，暴露`25565 25575`两个端口，也就是服务器端口和RCON端口。
+这个文件让Docker Compose执行同级的Dockerfile以构建镜像，并将容器名称命名为`minecraft-server`，暴露`25565 25575`
+两个端口，也就是服务器端口和RCON端口。
 
 Docker Compose会将您服务器内的`/workspace/server`挂载到容器内的工作目录内。
 
@@ -225,7 +236,6 @@ ll
 unzip paper-server.zip
 ```
 
-
 它会将压缩包解压为同名的目录，并放在相同的目录下。
 
 ### 运行服务器
@@ -242,7 +252,7 @@ cd paper-server/
 docker compose up -d
 ```
 
-Docker会自动拉取需要的镜像并构建您的Minecraft服务器镜像，并运行它的容器。这需要一点时间，您可以去倒杯咖啡。
+Docker会自动拉取需要的镜像并构建您的Minecraft服务器镜像，然后运行它的容器。这需要一点时间，您可以去倒杯咖啡。
 
 > 如果您发现错误并修改了`paper-server/`中的代码，您可以使用`docker compose up -d --build`重新构建镜像。
 
@@ -256,7 +266,7 @@ CONTAINER ID   IMAGE                    COMMAND                  CREATED       S
 a94abfb6e647   paper-server-minecraft   "/sbin/tini -- ./sta…"   6 weeks ago   Up 16 hours   0.0.0.0:25565->25565/tcp, [::]:25565->25565/tcp, 0.0.0.0:25575->25575/tcp, [::]:25575->25575/tcp   minecraft-server
 ```
 
-接下来，使用以下命令Minecraft服务器输出的日志：
+接下来，使用以下命令查看Minecraft服务器输出的日志：
 
 ```bash
 docker logs -f minecraft-server
