@@ -1,5 +1,5 @@
 ---
-title: 用Docker部署Paper Minecraft服务器
+title: 使用Docker部署原版Minecraft服务器
 date: 2026-10-18
 summary: 本教程详细阐述如何在服务器上，在Ubuntu上通过Docker部署并管理基于Paper的原版Minecraft服务器。
 tags: [ 教程, Linux, Docker ]
