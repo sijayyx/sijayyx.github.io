@@ -10,15 +10,5 @@
       "Linux",
       "Docker"
     ]
-  },
-  {
-    "name": "test",
-    "title": "测试",
-    "date": "2026-10-10",
-    "summary": "测试测试测试测试",
-    "cover": "/images/articles/you-are-0-i-am-1.png",
-    "tags": [
-      "GG"
-    ]
   }
 ]
