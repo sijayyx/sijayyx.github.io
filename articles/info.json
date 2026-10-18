@@ -1,34 +1,14 @@
 [
   {
-    "name": "fgg-3",
-    "title": "番茄鱼之梦（三）",
-    "date": "2026-10-10",
-    "summary": "分手后，冯坤坤独自吃完一碗凉透的番茄鱼。",
-    "cover": "/images/articles/you-are-0-i-am-1.png",
+    "name": "tutorial-minecraft-server-setup",
+    "title": "使用Docker部署原版Minecraft服务器",
+    "date": "2026-10-18",
+    "summary": "本教程详细阐述如何在服务器上，使用Docker在Ubuntu Linux上部署并管理基于Paper的原版Minecraft服务器。",
+    "cover": "/images/articles/minecraft-screenshot-1.png",
     "tags": [
-      "GG",
-      "BB",
-      "AA"
-    ]
-  },
-  {
-    "name": "fgg-2",
-    "title": "番茄鱼之梦（二）",
-    "date": "2026-10-09",
-    "summary": "想吃番茄鱼吗喵？",
-    "cover": "/images/articles/ayaka.png",
-    "tags": [
-      "GG"
-    ]
-  },
-  {
-    "name": "fgg-1",
-    "title": "番茄鱼之梦（一）",
-    "date": "2026-10-08",
-    "summary": "冯坤坤心里想的是甜品站的运维小哥。",
-    "cover": "/images/articles/tomato-fish.png",
-    "tags": [
-      "GG"
+      "教程",
+      "Linux",
+      "Docker"
     ]
   }
 ]
