@@ -10,5 +10,25 @@
       "Linux",
       "Docker"
     ]
+  },
+  {
+    "name": "fgg-2",
+    "title": "番茄鱼之梦（二）",
+    "date": "2026-10-09",
+    "summary": "想吃番茄鱼吗喵？",
+    "cover": "/images/articles/ayaka.png",
+    "tags": [
+      "GG"
+    ]
+  },
+  {
+    "name": "fgg-1",
+    "title": "番茄鱼之梦（一）",
+    "date": "2026-10-08",
+    "summary": "冯坤坤心里想的是甜品站的运维小哥。",
+    "cover": "/images/articles/tomato-fish.png",
+    "tags": [
+      "GG"
+    ]
   }
 ]
