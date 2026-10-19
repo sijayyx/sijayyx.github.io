@@ -1,5 +1,6 @@
 ---
 title: 使用Docker部署原版Minecraft服务器
+author: Sijayyx
 date: 2026-10-18
 summary: 本教程详细阐述如何在服务器上，在Ubuntu上通过Docker部署并管理基于Paper的原版Minecraft服务器。
 tags: [ 教程, Linux, Docker ]
@@ -17,8 +18,7 @@ cover: /images/articles/minecraft-screenshot-1.png
 
 ## 准备工作
 
-首先，您需要一台具有公网IP的主机，并安装Ubuntu
-Linux。云服务器一般都会分配公网IP地址并预装Linux操作系统。如果您没有云服务器，也可以使用内网穿透或组建虚拟局域网。本教程默认您拥有一台云服务器。
+首先，您需要一台具有公网IP的主机，并安装Ubuntu Linux。云服务器一般都会分配公网IP地址并预装Linux操作系统。如果您没有云服务器，也可以使用内网穿透或组建虚拟局域网。本教程默认您拥有一台云服务器。
 
 ### 登录远程主机
 
@@ -38,8 +38,7 @@ root@yourhostname:~#
 
 ### 安装Docker
 
-在开始教程之前，请在服务器中安装Docker与Docker
-Compose。本教程不赘述此过程。值得提醒的是，常见的云服务器厂商（如阿里云、腾讯云等）通常会提供镜像加速服务以加速常见镜像的拉取。但有些镜像不会被加速，对于这种情况，您可以使用公共镜像源。我一般使用：
+在开始教程之前，请在服务器中安装Docker与Docker Compose。本教程不赘述此过程。值得提醒的是，常见的云服务器厂商（如阿里云、腾讯云等）通常会提供镜像加速服务以加速常见镜像的拉取。但有些镜像不会被加速，对于这种情况，您可以使用公共镜像源。我一般使用：
 
 ```bash
 https://docker.m.daocloud.io
@@ -131,15 +130,13 @@ java -jar server.jar --nogui
 java -Xms4G -Xmx4G -XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200 -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:G1HeapWastePercent=5 -XX:G1MixedGCCountTarget=4 -XX:InitiatingHeapOccupancyPercent=15 -XX:G1MixedGCLiveThresholdPercent=90 -XX:G1RSetUpdatingPauseTimePercent=5 -XX:SurvivorRatio=32 -XX:+PerfDisableSharedMem -XX:MaxTenuringThreshold=1 -Dusing.aikars.flags=https://mcflags.emc.gs -Daikars.new.flags=true -XX:G1NewSizePercent=40 -XX:G1MaxNewSizePercent=50 -XX:G1HeapRegionSize=16M -XX:G1ReservePercent=15 -jar server.jar --nogui
 ```
 
-那堆参数是干嘛的不用管。您只需要根据您的服务器配置调整`-Xms -Xmx`
-这两项就行了。这是虚拟机的内存设置，它需要一个整数值和单位。将两个参数设置为相同值可避免JVM频繁申请额外内存导致的卡顿。对于4人左右的原版Minecraft服务器，2-3G的内存就已足够。
+那堆参数是干嘛的不用管。您只需要根据您的服务器配置调整`-Xms -Xmx`这两项就行了。这是虚拟机的内存设置，它需要一个整数值和单位。将两个参数设置为相同值可避免JVM频繁申请额外内存导致的卡顿。对于4人左右的原版Minecraft服务器，2-3G的内存就已足够。
 
 > 请注意，这个内存大小是专门分配给JVM的，操作系统、Docker等其它服务本身还会占用一部分内存，请务必留出余量。
 
 #### Dockerfile
 
-回到上级目录，也就是`server`这个文件夹的同级目录，`paper-server`文件夹下，请创建一个文本文件，并命名为`Dockerfile`（*
-*不带`.txt`扩展名**）。在其中编辑这样的内容：
+回到上级目录，也就是`server`这个文件夹的同级目录，`paper-server`文件夹下，请创建一个文本文件，并命名为`Dockerfile`（**不带`.txt`扩展名**）。在其中编辑这样的内容：
 
 ```dockerfile
 FROM eclipse-temurin:25-jdk-alpine
@@ -160,13 +157,11 @@ ENTRYPOINT ["/sbin/tini", "--"]
 CMD ["./start.sh"]
 ```
 
-在这个Dockerfile里，我们拉取轻量版Java 25的Docker镜像，并设置容器内部的工作目录为`/server`，通过阿里云的镜像拉取`tini`、
-`curl`、`bash`等工具。
+在这个Dockerfile里，我们拉取轻量版Java 25的Docker镜像，并设置容器内部的工作目录为`/server`，通过阿里云的镜像拉取`tini`、`curl`、`bash`等工具。
 
 随后，我们将Dockerfile所在目录中的`/server`文件夹整体复制到工作目录中，并给其中的`start.sh`赋予可执行权限。
 
-接着，我们暴露`25565`端口，也就是您在`server.properties`中设置的端口，使用`tini`作为初始化进程，并运行`start.sh`
-，把Minecraft服务器跑起来。
+接着，我们暴露`25565`端口，也就是您在`server.properties`中设置的端口，使用`tini`作为初始化进程，并运行`start.sh`，把Minecraft服务器跑起来。
 
 #### docker-compose.yml
 
@@ -186,8 +181,7 @@ services:
     restart: unless-stopped
 ```
 
-这个文件让Docker Compose执行同级的Dockerfile以构建镜像，并将容器名称命名为`minecraft-server`，暴露`25565 25575`
-两个端口，也就是服务器端口和RCON端口。
+这个文件让Docker Compose执行同级的Dockerfile以构建镜像，并将容器名称命名为`minecraft-server`，暴露`25565 25575`两个端口，也就是服务器端口和RCON端口。
 
 Docker Compose会将您服务器内的`/workspace/server`挂载到容器内的工作目录内。
 
