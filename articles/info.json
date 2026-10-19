@@ -1,5 +1,16 @@
 [
   {
+    "name": "co-dev-guide",
+    "title": "Git基本协作开发指南",
+    "date": "2026-10-19",
+    "summary": "本文介绍如何在IDE中基于Github，完成从同步代码、创建特性分支、约定式提交到推送与创建PR 的团队协作开发流程。",
+    "cover": "/images/articles/code-1.png",
+    "tags": [
+      "教程",
+      "Git"
+    ]
+  },
+  {
     "name": "tutorial-minecraft-server-setup",
     "title": "使用Docker部署原版Minecraft服务器",
     "date": "2026-10-18",
