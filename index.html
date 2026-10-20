@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" class="light-mode">
 <head>
     <meta charset="UTF-8">
     <link rel="icon" href="/favicon.ico">
@@ -25,9 +25,19 @@
                 history.replaceState(null, null, redirect);
             }
         })();
+
+        (function () {
+            try {
+                let saved = localStorage.getItem('theme')
+                let theme = saved === 'dark' ? 'dark' : 'light'
+                document.documentElement.classList.add(theme + '-mode')
+            } catch (e) {
+                document.documentElement.classList.add('light-mode')
+            }
+        })()
     </script>
-  <script type="module" crossorigin src="/assets/index-CYWoJU0S.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-CJ8c9el_.css">
+  <script type="module" crossorigin src="/assets/index-Dyk2hWfy.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-BML39Ogu.css">
 </head>
 <body>
 <div id="app"></div>

@@ -1,5 +1,15 @@
 [
   {
+    "name": "thaw",
+    "title": "解冻",
+    "date": "2026-10-20",
+    "summary": "科技保守主义中的后AI时代。",
+    "cover": "/images/articles/snow.png",
+    "tags": [
+      "随笔"
+    ]
+  },
+  {
     "name": "co-dev-guide",
     "title": "Git基本协作开发指南",
     "date": "2026-10-19",
