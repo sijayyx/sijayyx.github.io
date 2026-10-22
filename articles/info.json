@@ -1,5 +1,17 @@
 [
   {
+    "name": "build-blog-deploy-to-github-pages-tutorial",
+    "title": "构建Vue SPA博客并在GitHub Pages上部署",
+    "date": "2026-10-22",
+    "summary": "本文介绍使用Vue从零构建个人博客，处理一系列关键技术问题，并自动部署到Github Pages的流程。",
+    "cover": "/images/articles/c-lang-femboy.jpg",
+    "tags": [
+      "教程",
+      "Vue",
+      "Git"
+    ]
+  },
+  {
     "name": "thaw",
     "title": "解冻",
     "date": "2026-10-20",
