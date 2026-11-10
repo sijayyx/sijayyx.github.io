@@ -1,0 +1,92 @@
+{
+  "musics": [
+    {
+      "type": "Single",
+      "name": "One More Dance",
+      "year": "2025",
+      "author": "d4vd",
+      "cover": "/images/favs/d4vd-one-more-dance.jpg",
+      "lyric": "Dance with your eyes wide shut\n40 degrees 'round us\nHolding you closer than before\nThe only way I'm letting you go\nIs if I can't see my hands\nIf my heart beats one less\nFaster than it's ever before\nAll that I ask of you is one more dance"
+    },
+    {
+      "type": "Single",
+      "name": "Glimpse of Us",
+      "year": "2022",
+      "author": "Joji",
+      "cover": "/images/favs/joji-glimpse-of-us.jpg",
+      "lyric": "And that's where I find a glimpse of us"
+    },
+    {
+      "type": "Single",
+      "name": "anything 4 u",
+      "year": "2020",
+      "author": "LANY",
+      "cover": "/images/favs/lany-anything-4-u.jpg",
+      "lyric": "I'll do anything for you"
+    },
+    {
+      "type": "Single",
+      "name": "iPad",
+      "year": "2021",
+      "author": "The Chainsmokers",
+      "cover": "/images/favs/the-chainsmokers-ipad.jpg",
+      "lyric": "And now we're strangers again"
+    },
+    {
+      "type": "Single",
+      "name": "Long Forgotten Flowers",
+      "year": "2009",
+      "author": "Pajaro Sunrise",
+      "cover": "/images/favs/pajaro-sunrise-long-forgotten-flowers.jpg",
+      "lyric": "Hold your horse Cinderella, don't rush for the crown"
+    },
+    {
+      "type": "Single",
+      "name": "風のたより",
+      "year": "2022",
+      "author": "tayori",
+      "cover": "/images/favs/tayori-kaze-no-tayori.jpg",
+      "lyric": "巡り合う奇跡を信じて欲しい"
+    },
+    {
+      "type": "Single",
+      "name": "パレード",
+      "year": "2020",
+      "author": "ヨルシカ",
+      "cover": "/images/favs/yorushika-parade.jpg",
+      "lyric": "一人ぼっちのパレードを"
+    },
+    {
+      "type": "Album",
+      "name": "吉姆餐厅",
+      "year": "2014",
+      "author": "赵雷",
+      "cover": "/images/favs/zhaolei-jim-resturant.jpg",
+      "lyric": "情窦初开的我 从不敢和你说"
+    },
+    {
+      "type": "Single",
+      "name": "Twenty Something",
+      "year": "2019",
+      "author": "Nightly",
+      "cover": "/images/favs/nightly-twenty-sth.jpg",
+      "lyric": "We're only twenty something"
+    },
+    {
+      "type": "Single",
+      "name": "花人局",
+      "year": "2020",
+      "author": "ヨルシカ",
+      "cover": "/images/favs/yorushika-plagiarism.jpg",
+      "lyric": "僕にひとつ 花を残して"
+    },
+    {
+      "type": "Single",
+      "name": "Young",
+      "year": "2017",
+      "author": "The Chainsmokers",
+      "cover": "/images/favs/the-chainsmokers-young.jpg",
+      "lyric": "But it's hard when you're young"
+    }
+  ]
+}
